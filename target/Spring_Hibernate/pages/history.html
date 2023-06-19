@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>History</title>
+</head>
+<body>
+<form th:action="@{/operation/calc}" method="get">
+    <button>Calculator</button>
+</form>
+<div th:each="calculatorOperation : ${operationList}">
+    <h2 th:text="${calculatorOperation.finalResult}"></h2>
+</div>
+</body>
+</html>

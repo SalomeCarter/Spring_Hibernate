@@ -1,9 +1,11 @@
 package by.tms.controller;
 
 import by.tms.dto.OperationDto;
+import by.tms.entity.Operation;
 import by.tms.entity.OperationType;
 import by.tms.entity.User;
 import by.tms.factory.OperationFactory;
+import by.tms.service.Calculator;
 import by.tms.service.CalculatorOperation;
 import by.tms.service.OperationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +28,8 @@ public class OperationController {
     private OperationService operationService;
 
     @Autowired
-    private OperationFactory operationFactory;
+    private Calculator calculator;
+
 
 
     @GetMapping("/calc")
@@ -42,7 +45,7 @@ public class OperationController {
 
         OperationType opType = OperationType.valueOf(dto.getType().toUpperCase());
         User user = (User) session.getAttribute("user");
-        CalculatorOperation operation = operationFactory.getInstance(dto.getNum1(), dto.getNum2(), opType, user);
+        CalculatorOperation operation = calculator.calculate();
 
         double result = operationService.calculate(operation);
 

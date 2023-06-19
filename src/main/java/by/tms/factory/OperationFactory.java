@@ -1,5 +1,6 @@
 package by.tms.factory;
 
+import by.tms.entity.Operation;
 import by.tms.entity.OperationType;
 import by.tms.entity.User;
 import by.tms.service.*;
@@ -7,7 +8,9 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class OperationFactory {
+
     public CalculatorOperation getInstance(double num1, double num2, OperationType operationType, User author) {
+
         switch (operationType) {
             case SUM:
                 SumOperation sumOperation = new SumOperation();
@@ -15,6 +18,7 @@ public class OperationFactory {
                 sumOperation.setNum2(num2);
                 sumOperation.setAuthor(author);
                 return sumOperation;
+
 
             case DIV:
                 DivOperation divOperation = new DivOperation();

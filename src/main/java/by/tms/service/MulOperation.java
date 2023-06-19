@@ -2,6 +2,9 @@ package by.tms.service;
 
 import by.tms.entity.User;
 
+import javax.persistence.Entity;
+
+@Entity
 public class MulOperation implements CalculatorOperation {
     private  double num1;
     private double num2;

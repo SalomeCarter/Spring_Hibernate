@@ -1,12 +1,19 @@
 package by.tms.service;
 
+import by.tms.entity.Operation;
 import by.tms.entity.User;
 
+import javax.persistence.Entity;
+
+
 public class DivOperation implements CalculatorOperation {
+
+
     private double num1;
     private double num2;
     private double result;
     private User author;
+
 
     public double getNum1() {
         return num1;
